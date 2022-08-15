@@ -3,7 +3,7 @@ const direccion = "https://japceibal.github.io/emercado-api/cats_products/101.js
 document.addEventListener('DOMContentLoaded', ()=>{
 
     fetch(direccion)
-    .then(respuesta => respuesta.json());
+    .then(respuesta => respuesta.json())
     .then(datos => {
         document.getElementById('nombre').innerHTML=products.name;
         document.getElementById('descripcion').innerHTML=procucts.description;
