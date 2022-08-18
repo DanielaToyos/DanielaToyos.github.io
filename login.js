@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     //Boton para registrarse
     document.getElementById("logBtn").addEventListener("click", () => {
-        register();
+        loginvalidate();
 
 
 
