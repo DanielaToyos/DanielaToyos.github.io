@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loginvalidate() {
     //parrafo de los errores
-    let errors = document.getElementById("errors");
-    let passerror = document.getElementById("passerror");
-    let completo = document.getElementById("completo");
+    let errors = document.querySelector("#errors");
+    let passerror = document.querySelector("#passerror");
+    let completo = document.querySelector("#completo");
 
     let email = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
@@ -22,6 +22,19 @@ function loginvalidate() {
     } else {
         showAlertSuccess();
     }
+
+    if (email === "") {
+        errors.textContent = 'Ingrese Email';
+    } else if (!email.includes("@") || !email.includes(".com")) {
+        errors.textContent = 'Formato de mail incorrecto, debe tener @ y .com';
+    } else if (password === undefined) {
+        passerror.textContent = 'Ingrese Contraseña'; 
+    } else {
+    completo.textContent = "Se registro correctamente";
+    errors.textContent = '';
+    }
+
+
 }
 
 function showAlertSuccess() {
