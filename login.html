@@ -13,14 +13,6 @@
     body {
       background-color: rgb(248, 249, 250);
     }
-
-    input:invalid {
-      border: 2px dashed red;
-    }
-
-     input:valid {
-      border: 2px solid black;
-    }
   </style>
 </head>
 
@@ -31,11 +23,11 @@
         <img class="mb-4" src="login.png" width="380">
         <h1 class="h3 mb-3 fw-normal">Inicio de sesion</h1>
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" required pattern="[@] | [.com]">
+          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
           <label for="floatingInput">Correo electronico</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña" required>
+          <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
           <label for="floatingPassword">Contraseña</label>
         </div>
         <div class="checkbox mb-3">
