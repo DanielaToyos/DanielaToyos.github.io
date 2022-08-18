@@ -36,7 +36,14 @@
             Recuerdame
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>
+
+        <div class="form-check">
+          <p id="errors" style="color:red"></p>
+          <p id="passerror" style="color:red"></p>
+          <p id="completo" style="color:green"></p>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="logBtn">Iniciar sesion</button>
       </div>
     </div>
   </main>
@@ -50,7 +57,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  
+
   <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
     <p>Datos guardados correctamente</p>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

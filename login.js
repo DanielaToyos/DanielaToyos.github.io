@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     //Boton para registrarse
-    document.getElementById("regBtn").addEventListener("click", () => {
+    document.getElementById("logBtn").addEventListener("click", () => {
         register();
 
 
