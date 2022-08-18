@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loginvalidate() {
     //parrafo de los errores
-    let errors = document.querySelector('#errors');
-    let passerror = document.querySelector('#passerror');
-    let completo = document.querySelector('#completo');
+    let errors = document.getElementById("errors");
+    let passerror = document.getElementById("passerror");
+    let completo = document.getElementById("completo");
 
     let email = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
