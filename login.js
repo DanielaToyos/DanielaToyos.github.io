@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    //Boton para registrarse
+    
     document.getElementById("logBtn").addEventListener("click", () => {
         loginvalidate();
 
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loginvalidate() {
-    //parrafo de los errores
+    
     let errors = document.querySelector("#errors");
     let passerror = document.querySelector("#passerror");
     let completo = document.querySelector("#completo");
@@ -24,13 +24,13 @@ function loginvalidate() {
     }
 
     if (email === "") {
-        errors.textContent = 'Ingrese Email';
+        errors.textContent = "Ingrese Email";
     } else if (!email.includes("@") || !email.includes(".com")) {
-        errors.textContent = 'Formato de mail incorrecto, debe tener @ y .com';
-    } else if (password === undefined) {
-        passerror.textContent = 'Ingrese Contraseña'; 
+        errors.textContent = "Formato de mail incorrecto, debe tener @ y .com";
+    } else if (password === undefined || password === "") {
+        passerror.textContent = "Ingrese Contraseña"; 
     } else {
-    completo.textContent = "Se registro correctamente";
+    completo.textContent = "Sesion iniciada correctamente.";
     errors.textContent = '';
     }
 
