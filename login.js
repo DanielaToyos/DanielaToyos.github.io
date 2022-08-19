@@ -17,16 +17,14 @@ function loginvalidate() {
     let email = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
 
-    if (email === "" || (!email.includes("@") || !email.includes(".com")) || password === undefined || password === "") {
+    if (email === "" || email === undefined || password === undefined || password === "") {
         showAlertError();
     } else {
         showAlertSuccess();
     }
 
-    if (email === "") {
+    if (email === "" || email === undefined) {
         errors.textContent = "Ingrese Email";
-    } else if (!email.includes("@") || !email.includes(".com")) {
-        errors.textContent = "Formato de mail incorrecto, debe tener @ y .com";
     } else if (password === undefined || password === "") {
         passerror.textContent = "Ingrese Contraseña"; 
     } else {
