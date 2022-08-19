@@ -17,7 +17,7 @@ function loginvalidate() {
     let email = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
 
-    if (email === "" || (!email.includes("@") || !email.includes(".com")) || password === undefined) {
+    if (email === "" || (!email.includes("@") || !email.includes(".com")) || password === undefined || password === "") {
         showAlertError();
     } else {
         showAlertSuccess();
