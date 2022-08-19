@@ -29,7 +29,7 @@ function loginvalidate() {
         errors.textContent = "Formato de mail incorrecto, debe tener @ y .com";
     } else if (password === undefined || password === "") {
         passerror.textContent = "Ingrese Contraseña"; 
-    } else if (email.includes("@") && email.includes(".com") && (password !== undefined || password !== "")) {
+    } else {
     completo.textContent = "Sesion iniciada correctamente.";
     errors.textContent = '';
     }
