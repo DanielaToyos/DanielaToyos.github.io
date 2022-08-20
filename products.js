@@ -5,8 +5,8 @@ let productsArray = [];
 function showProductsList(array){
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){ 
-        let products = array.products[i];
+    for(let i = 0; i < productsArray.products.length; i++){ 
+        let products = productsArray.products[i];
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
@@ -40,10 +40,11 @@ EJECUCIÓN:
 
 */
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data;
+
             showProductsList(productsArray);
         }
     });
