@@ -1,34 +1,54 @@
-const direccion = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+const direccion = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
+//array donde se cargarán los datos recibidos:
+let productsArray = [];
 
-function showProductsList(){
+//función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
+function showProductsList(array){
+    let htmlContentToAppend = "";
 
-  htmlContentToAppend += `
-            <div onclick="setCatID(${products.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${products.name} - ${products.currency} ${products.cost}</h4>
-                            <small class="text-muted">${products.soldCount} artículos</small>
+    for(let i = 0; i < array.length; i++){ 
+        let products = array[i];
+        htmlContentToAppend += `
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mb-1">
+                        <h4>`+ products.name + '-' + products.currency + + products.cost +`</h4> 
+                        <p> `+ products.description +`</p> 
                         </div>
-                        <p class="mb-1">${products.description}</p>
+                        <small class="text-muted">` + products.soldCount + ` vendidos</small> 
                     </div>
+
                 </div>
             </div>
-            `
-         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        </div>
+        `
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
+    }
 }
 
 
-document.addEventListener("DOMContentLoaded", ()=>{
+/* 
+EJECUCIÓN:
 
-    fetch(direccion)
-    .then(respuesta => respuesta.json())
-    .then(datos => {
-        console.log(datos);
-        showProductsList(datos);
-    })
-})
+-Al cargar la página se llama a getJSONData() pasándole por parámetro la dirección para obtener el listado.
+-Se verifica el estado del objeto que devuelve, y, si es correcto, se cargan los datos en categoriesArray.
+-Por último, se llama a showCategoriesList() pasándole por parámetro categoriesArray.
+
+*/
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productsArray = resultObj.data;
+            showCategoriesList(productsArray);
+        }
+    });
+});
+
