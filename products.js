@@ -1,5 +1,3 @@
-const direccion = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-
 //array donde se cargarán los datos recibidos:
 let productsArray = [];
 
@@ -8,7 +6,7 @@ function showProductsList(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){ 
-        let products = array[i];
+        let products = array.products[i];
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
@@ -42,13 +40,12 @@ EJECUCIÓN:
 
 */
 
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+        if (resultObj.status === "ok"){
             productsArray = resultObj.data;
-            showCategoriesList(productsArray);
+            showProductsList(productsArray);
         }
     });
-});
+})    
 
