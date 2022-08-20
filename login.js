@@ -1,12 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    document.getElementById("logBtn").addEventListener("click", () => {
-        loginvalidate();
-
-
-
-    })
-});
 
 function loginvalidate() {
     
@@ -30,6 +21,8 @@ function loginvalidate() {
     } else {
     completo.textContent = "Sesion iniciada correctamente.";
     errors.textContent = '';
+    localStorage.setItem("email" ,email);
+    location.href="index.html";
     }
 
 }
@@ -41,3 +34,10 @@ function showAlertSuccess() {
 function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    document.getElementById("logBtn").addEventListener("click", () => {
+        loginvalidate();
+    })
+});
