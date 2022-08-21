@@ -4,6 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="237278226972-cj2jmeh92b96bipm88i8hsvhms9qr04a.apps.googleusercontent.com.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <title>eMercado - Todo lo que busques está aquí</title>
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -23,8 +26,8 @@
         <img class="mb-4" src="img/login.png" width="380">
         <h1 class="h3 mb-3 fw-normal">Inicio de sesion</h1>
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" required>
-          <label for="floatingInput">Correo electronico</label>
+          <input type="text" class="form-control" id="floatingInput" placeholder="nombre" required>
+          <label for="floatingInput">Nombre de usuario</label>
         </div>
         <div class="form-floating">
           <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña" required>
@@ -45,6 +48,19 @@
 
         <button class="w-100 btn btn-lg btn-primary" type="submit" id="logBtn">Iniciar sesion</button>
       </div>
+      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
     </div>
   </main>
   <footer class="text-muted">

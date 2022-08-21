@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    let email = localStorage.getItem("email");
+    let usuario = localStorage.getItem("usuario");
 
-    if(email == null) {
+    if(usuario == null) {
         alert("No hay nadie loggeado");
         location.href = "login.html";
     } else {
-        document.getElementById("email").innerHTML = email;
+        document.getElementById("usuario").innerHTML = usuario;
     }
 
     document.getElementById("cierro").addEventListener("click", () => {

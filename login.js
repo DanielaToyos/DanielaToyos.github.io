@@ -5,23 +5,23 @@ function loginvalidate() {
     let passerror = document.querySelector("#passerror");
     let completo = document.querySelector("#completo");
 
-    let email = document.getElementById("floatingInput").value;
+    let usuario = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
 
-    if (email === "" || email === undefined || password === undefined || password === "") {
+    if (usuario === "" || usuario === undefined || password === undefined || password === "") {
         showAlertError();
     } else {
         showAlertSuccess();
     }
 
-    if (email === "" || email === undefined) {
-        errors.textContent = "Ingrese Email";
+    if (usuario === "" || usuario === undefined) {
+        errors.textContent = "Ingrese nombre de usuario";
     } else if (password === undefined || password === "") {
-        passerror.textContent = "Ingrese Contraseña"; 
+        passerror.textContent = "Ingrese contraseña"; 
     } else {
     completo.textContent = "Sesion iniciada correctamente.";
     errors.textContent = '';
-    localStorage.setItem("email" ,email);
+    localStorage.setItem("usuario" ,usuario);
     location.href="index.html";
     }
 
