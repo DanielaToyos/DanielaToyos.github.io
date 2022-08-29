@@ -40,13 +40,20 @@ EJECUCIÓN:
 
 */
 
+document.addEventListener("DOMContentLoaded", function(e) {
+    let id=localStorage.getItem("catID");
+    getJSONData(PRODUCTS_URL + id + ".json").then(function (resultObj){ 
+    })
+})
+
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+    let id=localStorage.getItem("catID");
+    getJSONData(PRODUCTS_URL + id + ".json").then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data;
 
             showProductsList(productsArray);
         }
     });
-})    
+})
 
