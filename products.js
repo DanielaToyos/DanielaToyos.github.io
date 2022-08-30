@@ -1,7 +1,7 @@
 //array donde se cargarán los datos recibidos:
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_SOLD_COUNT = "Vendidos";
+const ORDER_BY_PRICE = "Precio";
 let productsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
@@ -13,20 +13,20 @@ function sortProducts(criteria, array){
     if (criteria === ORDER_ASC_BY_NAME)
     {
         result = array.sort(function(a, b) {
-            if ( a.name < b.name ){ return -1; }
-            if ( a.name > b.name ){ return 1; }
+            if ( a.products.name < b.products.name ){ return -1; }
+            if ( a.products.name > b.products.name ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_DESC_BY_NAME){
         result = array.sort(function(a, b) {
-            if ( a.name > b.name ){ return -1; }
-            if ( a.name < b.name ){ return 1; }
+            if ( a.products.name > b.products.name ){ return -1; }
+            if ( a.products.name < b.products.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_SOLD_COUNT){
+    }else if (criteria === ORDER_BY_PRICE){
         result = array.sort(function(a, b) {
-            let aCount = parseInt(a.soldCount);
-            let bCount = parseInt(b.soldCount);
+            let aCount = parseInt(a.products.cost);
+            let bCount = parseInt(b.products.cost);
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
@@ -42,10 +42,10 @@ function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
 
     if(productsArray != undefined){
-        currentCategoriesArray = productsArray;
+        currentProductsArray = productsArray;
     }
 
-    currentCategoriesArray = sortCategories(currentSortCriteria, currentProductsArray);
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
     //Muestro las categorías ordenadas
     showProductsList();
@@ -59,8 +59,8 @@ document.getElementById("sortDesc").addEventListener("click", function(){
     sortAndShowProducts(ORDER_DESC_BY_NAME);
 });
 
-document.getElementById("sortByCount").addEventListener("click", function(){
-    sortAndShowProducts(ORDER_BY_PROD_COUNT);
+document.getElementById("sortByPrice").addEventListener("click", function(){
+    sortAndShowProducts(ORDER_BY_PRICE);
 });
 
 document.getElementById("clearRangeFilter").addEventListener("click", function(){
