@@ -1,7 +1,7 @@
 //array donde se cargarán los datos recibidos:
-const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PRICE = "Precio";
+const ORDER_ASC_BY_COST = "Precio Asc.";
+const ORDER_DESC_BY_COST = "Precio Desc.";
+const ORDER_BY_PROD_SOLDCOUNT = "Relevancia";
 let currentProductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
@@ -10,26 +10,30 @@ let maxCount = undefined;
 
 function sortProducts(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_NAME)
+    if (criteria === ORDER_ASC_BY_COST)
     {
-        result = array.sort(function(a, b) {
-            if ( a.products.name < b.products.name ){ return -1; }
-            if ( a.products.name > b.products.name ){ return 1; }
+        result = array.products.sort(function(a, b) {
+            let acost = parseInt(a.cost);
+            let bcost = parseInt(b.cost);
+            if ( acost < bcost ){ return -1; }
+            if ( acost > bcost ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_NAME){
-        result = array.sort(function(a, b) {
-            if ( a.products.name > b.products.name ){ return -1; }
-            if ( a.products.name < b.products.name ){ return 1; }
+    }else if (criteria === ORDER_DESC_BY_COST){
+        result = array.products.sort(function(a, b) {
+            let acost = parseInt(a.cost);
+            let bcost = parseInt(b.cost);
+            if ( acost > bcost ){ return -1; }
+            if ( acost < bcost ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PRICE){
-        result = array.sort(function(a, b) {
-            let aCount = parseInt(a.products.cost);
-            let bCount = parseInt(b.products.cost);
+    }else if (criteria === ORDER_BY_PROD_SOLDCOUNT){
+        result = array.products.sort(function(a, b) {
+            let asoldCount = parseInt(a.soldCount);
+            let bsoldCount = parseInt(b.soldCount);
 
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
+            if ( asoldCount > bsoldCount ){ return -1; }
+            if ( asoldCount < bsoldCount ){ return 1; }
             return 0;
         });
     }
@@ -110,15 +114,15 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_ASC_BY_NAME);
+        sortAndShowProducts(ORDER_ASC_BY_COST);
     });
     
     document.getElementById("sortDesc").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_DESC_BY_NAME);
+        sortAndShowProducts(ORDER_DESC_BY_COST);
     });
     
-    document.getElementById("sortByPrice").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PRICE);
+    document.getElementById("sortBySoldCount").addEventListener("click", function(){
+        sortAndShowProducts(ORDER_BY_PROD_SOLDCOUNT);
     });
     
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
