@@ -46,29 +46,38 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
 function showProductsList(array){
+
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < productsArray.products.length; i++){ 
-        let products = productsArray.products[i];
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ products.name + '-' + products.currency + + products.cost +`</h4> 
-                        <p> `+ products.description +`</p> 
-                        </div>
-                        <small class="text-muted">` + products.soldCount + ` vendidos</small> 
-                    </div>
+    for(let i = 0; i < currentProductsArray.products.length; i++){ 
+        let products = currentProductsArray.products[i];
 
-                </div>
-            </div>
-        </div>
-        `
+        if (((minCount == undefined) || (minCount != undefined && parseInt(products.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))){
+
+
+          htmlContentToAppend += `
+          <div class="list-group-item list-group-item-action">
+              <div class="row">
+                  <div class="col-3">
+                      <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
+                  </div>
+                  <div class="col">
+                      <div class="d-flex w-100 justify-content-between">
+                          <div class="mb-1">
+                          <h4>`+ products.name + '-' + products.currency + + products.cost +`</h4> 
+                          <p> `+ products.description +`</p> 
+                          </div>
+                          <small class="text-muted">` + products.soldCount + ` vendidos</small> 
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+          `
+         
+            }
+
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
     }
 }
@@ -79,7 +88,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
 
     if(productsArray != undefined){
-       currentProductsArray = (productsArray.products);
+       currentProductsArray = productsArray;
     }
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
@@ -94,9 +103,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     let id=localStorage.getItem("catID");
     getJSONData(PRODUCTS_URL + id + ".json").then(function(resultObj){
         if (resultObj.status === "ok"){
-            productsArray = resultObj.data;
+            currentProductsArray = resultObj.data;
 
-            showProductsList(productsArray);
+            showProductsList();
         }
     });
 
