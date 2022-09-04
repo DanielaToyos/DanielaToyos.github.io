@@ -2,7 +2,6 @@
 const ORDER_ASC_BY_COST = "Precio Asc.";
 const ORDER_DESC_BY_COST = "Precio Desc.";
 const ORDER_BY_PROD_SOLDCOUNT = "Relevancia";
-const search = document.getElementById('search');
 let currentProductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
@@ -159,15 +158,21 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 
-    search.addEventListener('keyup', (palabra)=>{
-        const searchString = palabra.target.value
-        const productosFiltrados = currentProductsArray.filter( product => {
-            return products.name.includes(searchString) || products.description.includes(searchString);
+    const search = document.getElementById("search");
+    search.addEventListener("keyup", z => {
+        const searchString = z.target.value;
+        const filteredProducts = currentProductsArray.filter(products => {
+          return (
+            products.name.includes(searchString) ||
+            products.description.includes(searchString)
+          );
         });
-        showProductsList(productosFiltrados);
-    });
+        showProductsList(filteredProducts);
+      });
 
-})
+
+
+});
 
 
 
