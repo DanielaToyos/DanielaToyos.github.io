@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             products.description.includes(searchString)
           );
         });
-        showProductsList(filteredProducts);
+        showProductsList(filteredProducts );
       });
 
 
