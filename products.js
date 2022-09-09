@@ -8,6 +8,7 @@ let minCount = undefined;
 let maxCount = undefined;
 
 
+
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
@@ -42,11 +43,19 @@ function sortProducts(criteria, array){
 }
 
 
+function setProdId(ProdId) {
+    let ProdId = currentProductsArray.products.id;
+    localStorage.setItem("ProdId", ProdId);
+    window.location = "product-info.html"
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function(e) {
     let id=localStorage.getItem("catID");
     getJSONData(PRODUCTS_URL + id + ".json").then(function (resultObj){ 
-    })
-})
+    });
+});
 
 
 function showProductsList(array){
@@ -61,7 +70,7 @@ function showProductsList(array){
 
 
           htmlContentToAppend += `
-          <div class="list-group-item list-group-item-action">
+          <div onclick="setProdId(${products.id})" class="list-group-item list-group-item-action cursor-active">
               <div class="row">
                   <div class="col-3">
                       <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
