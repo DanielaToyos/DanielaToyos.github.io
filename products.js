@@ -1,4 +1,4 @@
-//array donde se cargarán los datos recibidos:
+
 const ORDER_ASC_BY_COST = "Precio Asc.";
 const ORDER_DESC_BY_COST = "Precio Desc.";
 const ORDER_BY_PROD_SOLDCOUNT = "Relevancia";
@@ -43,11 +43,6 @@ function sortProducts(criteria, array){
 }
 
 
-function setProdId(ProdId) {
-    let ProdId = currentProductsArray.products.id;
-    localStorage.setItem("ProdId", ProdId);
-    window.location = "product-info.html"
-}
 
 
 
@@ -70,7 +65,7 @@ function showProductsList(array){
 
 
           htmlContentToAppend += `
-          <div onclick="setProdId(${products.id})" class="list-group-item list-group-item-action cursor-active">
+          <div onclick="setProdID(${products.id})" class="list-group-item list-group-item-action cursor-active">
               <div class="row">
                   <div class="col-3">
                       <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
@@ -183,6 +178,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+
+function setProdID(ProdID) {
+    let prodId = currentProductsArray.products.id;
+    localStorage.setItem("ProdID", prodId);
+    window.location = "product-info.html"
+}
 
 
 
