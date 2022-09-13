@@ -8,31 +8,15 @@ let InfoArray = [];
 
 function showInfo(array){
 
-    let htmlContentToAppend = "";
+    for(let i = 0; i < InfoArray.length; i++){
+      let info = InfoArray[i];
 
-    for(let i=0; i < InfoArray.length; i++){
-        let info = InfoArray[i];
-
-        htmlContentToAppend += `
-        <div>
-          <h4>'Precio'</h4>
-          <p>`+info.currency+ +info.cost+`</p>
-          <br>
-          <h4>'Descripcion'</h4>
-          <p>`+info.description+`</p>
-          <br>
-          <h4>'Categoria'</h4>
-          <p>`+info.category+`</p>
-          <br>
-          <h4>Cantidad de vendidos</h4>
-          <p>`+info.soldCount+`</p>
-          <br>
-          <h4>Imagenes ilustrativas</h4>
-          <img src="`+info.images+`">        
-        </div>`
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+      document.getElementById("Precio").innerHTML = info.currency + info.cost;
+      document.getElementById("Descripcion").innerHTML = info.description;
+      document.getElementById("Categoria").innerHTML = info.category;
+      document.getElementById("Vendidos").innerHTML = info.soldCount;
     }
+    
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
