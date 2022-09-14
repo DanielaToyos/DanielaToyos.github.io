@@ -179,9 +179,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 
-function setProdID(ProdID) {
-    let prodId = currentProductsArray.products.id;
-    localStorage.setItem("ProdID", prodId);
+function setProdID(prodId) {
+    localStorage.setItem("ProdID",prodId);
     window.location = "product-info.html"
 }
 
