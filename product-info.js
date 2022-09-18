@@ -1,16 +1,43 @@
 
 
 function showInfo(InfoArray) {
+    let productImages ="";
 
     document.getElementById('Nombre').innerHTML = InfoArray.name;
     document.getElementById('Precio').innerHTML = InfoArray.currency + InfoArray.cost;
     document.getElementById('Descripcion').innerHTML = InfoArray.description;
     document.getElementById('Categoria').innerHTML = InfoArray.category;
     document.getElementById('Vendidos').innerHTML = InfoArray.soldCount;
-    for (let i in InfoArray.images) {
-        document.getElementById('Imagenes').innerHTML += InfoArray.images[i];
+    for (let i = 0; i < InfoArray.images.length; i++) {
+        let imagenes = InfoArray.images[i];
+        productImages +=`
+        <div class="col-2 contenido">
+         <img src="${imagenes}" alt="product image" class="img-thumbnail"></img>
+        </div>
+        `
+        document.getElementById('Imagenes').innerHTML = productImages;
+
     }
 }
+
+function puntuacion(puntos){
+    var estrellas="";
+    for(let i = 1; i <= 5; i++){
+        if(i <= puntos){
+            estrellas += `<i class="fa fa-star checked"></i>`;
+        }else{
+            estrellas += `<i class="fa fa-star"></i>`;
+        }
+    }
+
+    return estrellas;
+}
+
+document.getElementById('puntaje').addEventListener('change', function(){
+    puntuacion(document.getElementById('puntaje').value);
+});
+
+
 
 function showComments(CommentsArray) {
     let htmlContentToAppend = "";
@@ -26,6 +53,7 @@ function showComments(CommentsArray) {
                       <small class="text-muted">${comment.dateTime}</small>
                     </div>
                     <p class="mb-1">${comment.description}</p>
+                    <p>${puntuacion(comment.score)}</p>
                   </div>
                 </div>
         </div>
