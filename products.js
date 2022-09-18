@@ -68,7 +68,7 @@ function showProductsList(array){
           <div onclick="setProdID(${products.id})" class="list-group-item list-group-item-action cursor-active">
               <div class="row">
                   <div class="col-3">
-                      <img scr="` + products.image + `" alt="product image" class="img-thumbnail">
+                      <img src="` + products.image + `" alt="product image" class="img-thumbnail">
                   </div>
                   <div class="col">
                       <div class="d-flex w-100 justify-content-between">
