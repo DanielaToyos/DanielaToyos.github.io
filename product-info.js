@@ -2,6 +2,7 @@
 
 function showInfo(InfoArray) {
     let productImages ="";
+    let relProds="";
 
     document.getElementById('Nombre').innerHTML = InfoArray.name;
     document.getElementById('Precio').innerHTML = InfoArray.currency + InfoArray.cost;
@@ -17,6 +18,16 @@ function showInfo(InfoArray) {
         `
         document.getElementById('Imagenes').innerHTML = productImages;
 
+    }
+    for (let i = 0; i < InfoArray.relatedProducts.length; i++) {
+        let relacionado = InfoArray.relatedProducts[i];
+        relProds +=`
+        <div class="list-group-item list-group-item-action cursor-active">
+          <h4 class="mb-1">${relacionado.name}</h4>
+          <img src="${relacionado.image}" alt="product image" class="img-thumbnail"></img>
+        </div>
+        `
+        document.getElementById('relacionados').innerHTML = relProds;
     }
 }
 
