@@ -1,7 +1,4 @@
-function setRelID(RelID){
-    localStorage.setItem("RelID", RelID);
-    window.location = "product-info.html"
-}
+
 
 
 function showInfo(InfoArray) {
@@ -26,7 +23,7 @@ function showInfo(InfoArray) {
     for (let i = 0; i < InfoArray.relatedProducts.length; i++) {
         let relacionado = InfoArray.relatedProducts[i];
         relProds +=`
-        <div onclick="setRelID(${relacionado.id})" class="list-group-item list-group-item-action cursor-active">
+        <div class="list-group-item list-group-item-action cursor-active">
           <h4 class="mb-1">${relacionado.name}</h4>
           <img src="${relacionado.image}" alt="product image" class="img-thumbnail"></img>
         </div>
