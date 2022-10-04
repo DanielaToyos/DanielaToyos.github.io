@@ -1,9 +1,12 @@
-
+function setRelID(RelID){
+    localStorage.setItem("RelID", RelID);
+    window.location = "product-info.html"
+}
 
 
 function showInfo(InfoArray) {
-    let productImages ="";
-    let relProds="";
+    let productImages = "";
+    let relProds = "";
 
     document.getElementById('Nombre').innerHTML = InfoArray.name;
     document.getElementById('Precio').innerHTML = InfoArray.currency + InfoArray.cost;
@@ -12,7 +15,7 @@ function showInfo(InfoArray) {
     document.getElementById('Vendidos').innerHTML = InfoArray.soldCount;
     for (let i = 0; i < InfoArray.images.length; i++) {
         let imagenes = InfoArray.images[i];
-        productImages +=`
+        productImages += `
         <div class="col-2 contenido">
          <img src="${imagenes}" alt="product image" class="img-thumbnail"></img>
         </div>
@@ -22,8 +25,8 @@ function showInfo(InfoArray) {
     }
     for (let i = 0; i < InfoArray.relatedProducts.length; i++) {
         let relacionado = InfoArray.relatedProducts[i];
-        relProds +=`
-        <div class="list-group-item list-group-item-action cursor-active">
+        relProds += `
+        <div onclick="setRelID(${relacionado.id})" class="list-group-item list-group-item-action cursor-active">
           <h4 class="mb-1">${relacionado.name}</h4>
           <img src="${relacionado.image}" alt="product image" class="img-thumbnail"></img>
         </div>
@@ -32,12 +35,12 @@ function showInfo(InfoArray) {
     }
 }
 
-function puntuacion(puntos){
-    var estrellas="";
-    for(let i = 1; i <= 5; i++){
-        if(i <= puntos){
+function puntuacion(puntos) {
+    var estrellas = "";
+    for (let i = 1; i <= 5; i++) {
+        if (i <= puntos) {
             estrellas += `<i class="fa fa-star checked"></i>`;
-        }else{
+        } else {
             estrellas += `<i class="fa fa-star"></i>`;
         }
     }
@@ -45,7 +48,7 @@ function puntuacion(puntos){
     return estrellas;
 }
 
-document.getElementById('puntaje').addEventListener('change', function(){
+document.getElementById('puntaje').addEventListener('change', function () {
     puntuacion(document.getElementById('puntaje').value);
 });
 
