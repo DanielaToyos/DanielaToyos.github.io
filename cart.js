@@ -1,6 +1,6 @@
 let carrito = [];
 
-function mostrarCarrito() {
+function mostrarCarrito(array) {
 
     let articulos = '';
 
@@ -28,9 +28,9 @@ function mostrarCarrito() {
 document.addEventListener('DOMContentLoaded', function () {
     getJSONData(CART_BUY_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-             carrito = resultObj.data;
+            carrito = resultObj.data;
 
-            mostrarCarrito();
+            mostrarCarrito(carrito);
         }
     });
 });
