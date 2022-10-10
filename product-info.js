@@ -1,6 +1,11 @@
+
+let ProdID = localStorage.getItem("ProdID");
+
 function setRelID(RelID){
     localStorage.setItem("RelID", RelID);
+    replace(ProdID , RelID);
     window.location = "product-info.html"
+    
 }
 
 
@@ -39,9 +44,9 @@ function puntuacion(puntos) {
     var estrellas = "";
     for (let i = 1; i <= 5; i++) {
         if (i <= puntos) {
-            estrellas += `<i class="fa fa-star checked"></i>`;
+            estrellas += `<i class="fas fa-star checked"></i>`;
         } else {
-            estrellas += `<i class="fa fa-star"></i>`;
+            estrellas += `<i class="far fa-star"></i>`;
         }
     }
 
