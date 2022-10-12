@@ -3,7 +3,6 @@ let ProdID = localStorage.getItem("ProdID");
 
 function setRelID(RelID){
     localStorage.setItem("RelID", RelID);
-    replace(ProdID , RelID);
     window.location = "product-info.html"
     
 }
