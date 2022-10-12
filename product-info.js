@@ -1,8 +1,8 @@
 
 let ProdID = localStorage.getItem("ProdID");
 
-function setRelID(RelID){
-    localStorage.setItem("RelID", RelID);
+function setRelID(ProdID){
+    localStorage.setItem("ProdID", ProdID);
     window.location = "product-info.html"
     
 }
