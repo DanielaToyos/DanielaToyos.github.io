@@ -1,22 +1,19 @@
 let carrito = [];
 
+
 function mostrarCarrito(array) {
 
-    let articulos = '';
+    let articulos = "";
 
     for (let i = 0; i < carrito.articles.length; i++) {
-        let articulo = carrito.articles[i];
+        let articulo = carrito.articles[i]; 
 
         articulos += `
-        <tr class="list-group-item list-group-item-action">
-            <td><img src="${articulo.image}" alt="product image" class="img-thumbnail"></img></td>
-            <td><p>${articulo.name}</p></td>
-            <td><p>${articulo.currency} ${articulo.unitCost}</p></td>
-            <td><div class="form-floating">
-            <input type="text" class="form-control" id="cantidad" placeholder="cantidad" required>
-            <label for="cantidad">${articulo.count}</label>
-            </div></td>
-            <td><p>${articulo.currency} (parseInt(${articulo.unitCost})*${articulo.count})</p></td>
+        <tr>
+            <th scope="row"><img src="${articulo.image}" alt="product image" style="width: 25%"></th>
+            <td>${articulo.name}</td>
+            <td>${articulo.currency} ${articulo.unitCost}</td>
+            <td><input type="text" class="form-control" id="cantidad" placeholder="ingrese cantidad" required>${articulo.count}</td>
         </tr>
         `
 
@@ -26,7 +23,8 @@ function mostrarCarrito(array) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    getJSONData(CART_BUY_URL).then(function (resultObj) {
+    let user = 25801
+    getJSONData(CART_INFO_URL + user + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             carrito = resultObj.data;
 
