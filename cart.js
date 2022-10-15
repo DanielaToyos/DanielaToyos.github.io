@@ -37,7 +37,11 @@ function mostrarCarrito(array) {
 };
 
 
-
+function multiplicacion() {
+    var total = "";
+    total = paseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
+    return total;
+};
 
 
 
@@ -48,16 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
             carrito = resultObj.data;
 
             mostrarCarrito(carrito);
+
+            document.getElementById("total").addEventListener('change', function () {
+                multiplicacion();
+            });
         }
     });
+
 });
 
-function multiplicacion() {
-    var total = "";
-    total = parseInt(document.getElementById("costounitario").value) * parseInt(document.getElementById("cantidad").value)
-    return total;
-};
 
-document.getElementById("cantidad").addEventListener('change', function () {
-    multiplicacion(document.getElementById("total").value);
-});
+
