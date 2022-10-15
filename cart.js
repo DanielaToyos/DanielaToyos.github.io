@@ -1,14 +1,18 @@
 let carrito = [];
 
 
-function multiplicar(cant) {
+/*function multiplicar(cant) {
     let i = 0; i < carrito.articles.length;
     let costo = parseInt(carrito.articles.unitCost);
     let cantidad = parseInt(document.getElementById("cantidad").value);
 
     costo * cantidad;
     return
-};
+};*/
+
+//change="${multiplicar(cant)}"
+
+
 
 
 function mostrarCarrito(array) {
@@ -22,15 +26,19 @@ function mostrarCarrito(array) {
         <tr>
             <th scope="row"><img src="${articulo.image}" alt="product image" style="width: 25%"></th>
             <td>${articulo.name}</td>
-            <td>${articulo.currency} ${articulo.unitCost}</td>
+            <td>${articulo.currency} <span id="costounitario">${articulo.unitCost}</span></td>
             <td><input type="number" class="form-control" id="cantidad" placeholder="${articulo.count}" required></td>
-            <td>${articulo.currency} change="${multiplicar(cant)}"</td>
+            <td>${articulo.currency}<span id="total"></span></td>
         </tr>
         `
 
         document.getElementById('infoCarrito').innerHTML = articulos;
     }
 };
+
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -42,4 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarCarrito(carrito);
         }
     });
+});
+
+function multiplicacion() {
+    var total = "";
+    total = parseInt(document.getElementById("costounitario").value) * parseInt(document.getElementById("cantidad").value)
+    return total;
+};
+
+document.getElementById("cantidad").addEventListener('change', function () {
+    multiplicacion(document.getElementById("total").value);
 });
