@@ -39,7 +39,7 @@ function mostrarCarrito(array) {
 
 function multiplicacion() {
     var total = "";
-    total = paseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
+    total += parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
     document.getElementById("total").innerHTML = total
 };
 
