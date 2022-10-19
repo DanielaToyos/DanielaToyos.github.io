@@ -100,7 +100,7 @@
           </div>
           <div class="col-4">
           <p>Número</p>
-          <input class="form-control" type="text" placeholder="Ej: 1234" aria-label="default input example"> 
+          <input class="form-control" type="number" placeholder="Ej: 1234" aria-label="default input example"> 
           </div>
         </div>
       </div>
@@ -111,6 +111,45 @@
           <div class="col-6">
           <p>Esquina</p>
           <input class="form-control" type="text" placeholder="Ej: Salamin" aria-label="default input example">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h5 class="mb-1">Costos</h5>
+      <br>
+      <div class="list-group-item list-group-item-action cursor-active">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mb-1">
+              <h6>Subtotal</h6> 
+              <small class="text-muted">Costo unitario del producto por cantidad</small> <span id="subtotalGeneral"></span> 
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item list-group-item-action cursor-active">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mb-1">
+              <h6>Costo de Envío</h6> 
+              <small class="text-muted">Según en tipo de envío </small> <span id="costoEnvio"></span> 
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item list-group-item-action cursor-active">
+        <div class="row">
+          <div class="col">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mb-1">
+              <h6>Total($)</h6> 
+              <span id="totalPagar"></span> 
+              </div>
+          </div>
           </div>
         </div>
       </div>

@@ -1,16 +1,35 @@
 let carrito = [];
+/*let objetoComprado = [];*/
 
 
-/*function multiplicar(cant) {
-    let i = 0; i < carrito.articles.length;
-    let costo = parseInt(carrito.articles.unitCost);
-    let cantidad = parseInt(document.getElementById("cantidad").value);
+/*function compra(array){
 
-    costo * cantidad;
-    return
-};*/
+    let articulos = "";
 
-//change="${multiplicar(cant)}"
+    for (let i = 0; i < objetoComprado.length; i++) {
+        let articulo = objetoComprado[i];
+
+        articulos += `
+        <tr>
+            <th scope="row"><img class="images" src="${articulo.images[0]}" alt="product image"  height="100"></img></th>
+            <td>${articulo.name}</td>
+            <td>${articulo.currency} <span id="costounitario">${articulo.cost}</span></td>
+            <td><input type="number" class="form-control" id="cantidad" value="1" required min="1"></td>
+            <td>${articulo.currency}<span id="total">${articulo.cost}</span></td>
+        </tr>
+        `
+
+        document.getElementById('infoCarrito').innerHTML = articulos;
+    }
+
+}*/
+
+function subtotalGeneral(){
+    let subtotal = "";
+    subtotal === document.getElementById("total") 
+    document.getElementById("subtotalGeneral").innerHTML = subtotal
+    return subtotal
+};
 
 
 
@@ -24,11 +43,11 @@ function mostrarCarrito(array) {
 
         articulos += `
         <tr>
-            <th scope="row"><img src="${articulo.image}" alt="product image" style="width: 25%"></th>
+            <th scope="row"><img class="images" src="${articulo.image}" alt="product image"  height="100"></img></th>
             <td>${articulo.name}</td>
             <td>${articulo.currency} <span id="costounitario">${articulo.unitCost}</span></td>
-            <td><input type="number" class="form-control" id="cantidad" placeholder="${articulo.count}" required></td>
-            <td>${articulo.currency}<span id="total"></span></td>
+            <td><input type="number" class="form-control" id="cantidad" value="${articulo.count}" required min="1"></td>
+            <td>${articulo.currency}<span id="total">${articulo.unitCost}</span></td>
         </tr>
         `
 
@@ -60,6 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+/*document.getElementById("comprar").addEventListener("click" , function() {
+    compra(array);
+});
+
+document.getElementById("comprar").addEventListener("click" , function() {
+    getJSONData
+})*/
 
 
 

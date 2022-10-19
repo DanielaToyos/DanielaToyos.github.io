@@ -1,6 +1,8 @@
 
 let ProdID = localStorage.getItem("ProdID");
 
+
+
 function setRelID(ProdID){
     localStorage.setItem("ProdID", ProdID);
     window.location = "product-info.html"
@@ -103,3 +105,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
+
