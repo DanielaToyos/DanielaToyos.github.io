@@ -1,4 +1,5 @@
 let carrito = [];
+let shipercentaje = "";
 /*let objetoComprado = [];*/
 
 
@@ -24,11 +25,19 @@ let carrito = [];
 
 }*/
 
-function subtotalGeneral(){
-    let subtotal = "";
-    subtotal === document.getElementById("total") 
-    document.getElementById("subtotalGeneral").innerHTML = subtotal
-    return subtotal
+document.getElementById("id15").addEventListener("change", function(){
+    shipercentaje = 0.15;
+});
+document.getElementById("id7").addEventListener("change", function(){
+    shipercentaje = 0.07;
+});
+document.getElementById("id5").addEventListener("change", function(){
+    shipercentaje = 0.05;
+});
+
+function subtotalGeneral() {
+    var subtotal = "";
+    subtotal += parseInt(carrito.articles[0].unitCost)
 };
 
 
@@ -47,7 +56,7 @@ function mostrarCarrito(array) {
             <td>${articulo.name}</td>
             <td>${articulo.currency} <span id="costounitario">${articulo.unitCost}</span></td>
             <td><input type="number" class="form-control" id="cantidad" value="${articulo.count}" required min="1"></td>
-            <td>${articulo.currency}<span id="total">${articulo.unitCost}</span></td>
+            <td>${articulo.currency}<span id="subtotal">${articulo.unitCost}</span></td>
         </tr>
         `
 
@@ -57,10 +66,24 @@ function mostrarCarrito(array) {
 
 
 function multiplicacion() {
-    var total = "";
-    total += parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
-    document.getElementById("total").innerHTML = total
+    var subtotal = "";
+    subtotal += parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
+    document.getElementById("subtotal").innerHTML = subtotal
+    document.getElementById("sub").innerHTML = subtotal
 };
+
+function porcentaje() {
+    var porcentaje = "";
+    porcentaje += parseInt(document.getElementById("sub")) * parseInt(shipercentaje)
+    document.getElementById("envio").innerHTML = porcentaje
+   
+};
+
+function sumar(){
+    var suma = "";
+    suma += parseInt(document.getElementById("sub")) + parseInt(document.getElementById("envio"))
+    document.getElementById("total").innerHTML = suma
+}
 
 
 
