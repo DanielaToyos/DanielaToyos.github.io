@@ -1,6 +1,9 @@
 let carrito = [];
-let shipercentaje = "";
+var subtotal = "";
+//let shipercentaje = "";
+let porcentaje = document.getElementsByName("porcentaje");
 /*let objetoComprado = [];*/
+//let costo = document.getElementsByName("costo");
 
 
 /*function compra(array){
@@ -25,7 +28,27 @@ let shipercentaje = "";
 
 }*/
 
-document.getElementById("id15").addEventListener("change", function(){
+/* prueba */
+function sumar(){ ///Entiéndase que esto no es lo más prolijo
+    //Solamente tiene como fin mostrar un posible uso de selección
+    //por clase y nombre de etiqueta
+
+
+    for (let i=0; i< porcentaje.length; i++){
+        if (porcentaje[i].checked){
+            costoEnvio = subtotal * parseFloat(porcentaje[i].value);
+        }
+
+    }
+
+    document.getElementById('envio').innerHTML=(costoEnvio).toFixed(2);
+}
+
+
+
+
+
+/*document.getElementById("id15").addEventListener("change", function(){
     shipercentaje = 0.15;
 });
 document.getElementById("id7").addEventListener("change", function(){
@@ -33,12 +56,12 @@ document.getElementById("id7").addEventListener("change", function(){
 });
 document.getElementById("id5").addEventListener("change", function(){
     shipercentaje = 0.05;
-});
+});*/
 
-function subtotalGeneral() {
+/*function subtotalGeneral() {
     var subtotal = "";
     subtotal += parseInt(carrito.articles[0].unitCost)
-};
+};*/
 
 
 
@@ -56,7 +79,7 @@ function mostrarCarrito(array) {
             <td>${articulo.name}</td>
             <td>${articulo.currency} <span id="costounitario">${articulo.unitCost}</span></td>
             <td><input type="number" class="form-control" id="cantidad" value="${articulo.count}" required min="1"></td>
-            <td>${articulo.currency}<span id="subtotal">${articulo.unitCost}</span></td>
+            <td>${articulo.currency}<span name="costo" id="subtotal">${articulo.unitCost}</span></td>
         </tr>
         `
 
@@ -66,24 +89,26 @@ function mostrarCarrito(array) {
 
 
 function multiplicacion() {
-    var subtotal = "";
     subtotal += parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
+
     document.getElementById("subtotal").innerHTML = subtotal
     document.getElementById("sub").innerHTML = subtotal
 };
 
-function porcentaje() {
+/*function porcentaje() {
     var porcentaje = "";
     porcentaje += parseInt(document.getElementById("sub")) * parseInt(shipercentaje)
     document.getElementById("envio").innerHTML = porcentaje
    
-};
+};*/
 
-function sumar(){
+/*function sumar(){
     var suma = "";
     suma += parseInt(document.getElementById("sub")) + parseInt(document.getElementById("envio"))
     document.getElementById("total").innerHTML = suma
-}
+}*/
+
+
 
 
 
@@ -99,9 +124,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 multiplicacion();
             });
         }
+
     });
 
+    for (let i=0; i< envio.length; i++){
+        envio[i].addEventListener('click',()=>{
+            sumar();
+        })
+
+    }
+
 });
+
+
+// Ejemplo de JavaScript inicial para deshabilitar el envío de formularios si hay campos no válidos
+(function () {
+    'use strict'
+  
+    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Bucle sobre ellos y evitar el envío
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  });
 
 /*document.getElementById("comprar").addEventListener("click" , function() {
     compra(array);
