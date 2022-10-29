@@ -1,5 +1,4 @@
 let carrito = [];
-var subtotal = "";
 //let shipercentaje = "";
 let porcentaje = document.getElementsByName("porcentaje");
 /*let objetoComprado = [];*/
@@ -23,27 +22,30 @@ let porcentaje = document.getElementsByName("porcentaje");
         </tr>
         `
 
-        document.getElementById('infoCarrito').innerHTML = articulos;
+        document.getElementById('infoCarrito'); = articulos;
     }
 
 }*/
 
 /* prueba */
-function sumar(){ ///Entiéndase que esto no es lo más prolijo
-    //Solamente tiene como fin mostrar un posible uso de selección
-    //por clase y nombre de etiqueta
+function sumar() {
 
+    let subtotal = parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
 
-    for (let i=0; i< porcentaje.length; i++){
-        if (porcentaje[i].checked){
+    let costoEnvio = 0;
+
+    for (let i = 0; i < porcentaje.length; i++) {
+        if (porcentaje[i].checked) {
             costoEnvio = subtotal * parseFloat(porcentaje[i].value);
-        }
+        };
+    };
 
-    }
+    document.getElementById("subtotal").innerHTML = subtotal;
+    document.getElementById("sub").innerHTML = subtotal;
+    document.getElementById('envio').innerHTML = parseFloat((costoEnvio).toFixed(2));
+    document.getElementById('total').innerHTML = parseFloat((subtotal).toFixed(2)) + parseFloat((costoEnvio).toFixed(2));
 
-    document.getElementById('envio').innerHTML=(costoEnvio).toFixed(2);
-}
-
+};
 
 
 
@@ -78,7 +80,7 @@ function mostrarCarrito(array) {
             <th scope="row"><img class="images" src="${articulo.image}" alt="product image"  height="100"></img></th>
             <td>${articulo.name}</td>
             <td>${articulo.currency} <span id="costounitario">${articulo.unitCost}</span></td>
-            <td><input type="number" class="form-control" id="cantidad" value="${articulo.count}" required min="1"></td>
+            <td><input onchange='sumar()' type="number" class="form-control" id="cantidad" value="${articulo.count}" required min="1"></td>
             <td>${articulo.currency}<span name="costo" id="subtotal">${articulo.unitCost}</span></td>
         </tr>
         `
@@ -88,12 +90,12 @@ function mostrarCarrito(array) {
 };
 
 
-function multiplicacion() {
+/*function multiplicacion() {
     subtotal += parseInt(carrito.articles[0].unitCost) * parseInt(document.getElementById("cantidad").value)
 
     document.getElementById("subtotal").innerHTML = subtotal
     document.getElementById("sub").innerHTML = subtotal
-};
+};*/
 
 /*function porcentaje() {
     var porcentaje = "";
@@ -103,10 +105,36 @@ function multiplicacion() {
 };*/
 
 /*function sumar(){
+
     var suma = "";
     suma += parseInt(document.getElementById("sub")) + parseInt(document.getElementById("envio"))
     document.getElementById("total").innerHTML = suma
 }*/
+
+
+function desactivarCampos(){
+
+    var numTarjeta = document.getElementById("numTarjeta");
+    var codSeg = document.getElementById("codSeg");
+    var venc = document.getElementById("venc");
+    var numCuenta = document.getElementById("numCuenta");
+
+
+    document.getElementById("botonTarjeta").addEventListener('click', function(e) {
+        numTarjeta.removeAttribute("disabled")
+        codSeg.removeAttribute("disabled")
+        venc.removeAttribute("disabled")
+        numCuenta.setAttribute("disabled" , "")
+    });
+
+    document.getElementById("botonTransferencia").addEventListener('click', function(e) {
+        numCuenta.removeAttribute("disabled")
+        numTarjeta.setAttribute("disabled" , "")
+        codSeg.setAttribute("disabled" , "")
+        venc.setAttribute("disabled" , "")
+    });
+
+}
 
 
 
@@ -119,26 +147,26 @@ document.addEventListener('DOMContentLoaded', function () {
             carrito = resultObj.data;
 
             mostrarCarrito(carrito);
-
-            document.getElementById("cantidad").addEventListener('change', function () {
-                multiplicacion();
-            });
-        }
+        };
 
     });
 
-    for (let i=0; i< envio.length; i++){
-        envio[i].addEventListener('click',()=>{
+    for (let i = 0; i < porcentaje.length; i++) {
+        porcentaje[i].addEventListener('click', () => {
             sumar();
         })
 
     }
 
+    desactivarCampos();
+
+    
+
 });
 
 
 // Ejemplo de JavaScript inicial para deshabilitar el envío de formularios si hay campos no válidos
-(function () {
+/*(function () {
     'use strict'
   
     // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
@@ -156,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
           form.classList.add('was-validated')
         }, false)
       })
-  });
+  });*/
 
 /*document.getElementById("comprar").addEventListener("click" , function() {
     compra(array);
@@ -166,5 +194,27 @@ document.getElementById("comprar").addEventListener("click" , function() {
     getJSONData
 })*/
 
+/*function desactivarCampos() {
+
+    var numTarjeta = document.getElementById("numTarjeta");
+    var codSeg = document.getElementById("codSeg");
+    var venc = document.getElementById("venc");
+    var numCuenta = document.getElementById("numCuenta");
+
+    document.getElementById("botonTarjeta").innerHTML.addEventListener('click', function(e) {
+        numTarjeta.disabled = false;
+        codSeg.disabled = false;
+        venc.disabled = false;
+        numCuenta.disabled = true;
+    });
+
+    document.getElementById("botonTransferencia").innerHTML.addEventListener('click', function(e) {
+        numTarjeta.disabled = true;
+        codSeg.disabled = true;
+        venc.disabled = true;
+        numCuenta.disabled = false;
+    });
+
+};*/
 
 
