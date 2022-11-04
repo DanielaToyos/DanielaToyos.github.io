@@ -1,3 +1,6 @@
+let nombre = document.getElementById("nombre").value;
+let apellido = document.getElementById("apellido").value;
+
 
 function correo(){
     let correo = localStorage.getItem("email");
@@ -5,7 +8,12 @@ function correo(){
     document.getElementById("Email").value = correo;
 }
 
-
+function guardarDatos(){
+    if (nombre === "" || nombre === undefined || apellido === undefined || apellido === "") {
+        localStorage.setItem("nombre" , nombre);
+        localStorage.setItem("apellido" , apellido);
+    }
+}
 
 
 
@@ -34,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     correo();
+
+    document.getElementById("logBtn").addEventListener("click", () => {
+        guardarDatos();
+    })
 });
 
 
