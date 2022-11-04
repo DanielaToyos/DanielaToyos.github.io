@@ -7,6 +7,7 @@ function loginvalidate() {
 
     let usuario = document.getElementById("floatingInput").value;
     let password = document.getElementById("floatingPassword").value;
+    let email = document.getElementById("email").value;
 
     if (usuario === "" || usuario === undefined || password === undefined || password === "") {
         showAlertError();
@@ -22,6 +23,7 @@ function loginvalidate() {
     completo.textContent = "Sesion iniciada correctamente.";
     errors.textContent = '';
     localStorage.setItem("usuario" ,usuario);
+    localStorage.setItem("email" , email);
     location.href="index.html";
     }
 
