@@ -36,254 +36,264 @@
     </div>
   </nav>
   <main>
-    <div class="container" id="carrito">
-      <div class="d-flex justify-content-center my-5">
+    <form method="post" class="row g-3 needs-validation" id="validacion" novalidate>
+      <div class="container" id="carrito">
+        <div class="d-flex justify-content-center my-5">
+          <br>
+          <h2 class="mb-1">Carrito de Compras</h2><br>
+        </div>
+        <h5 class="mb-1">Articulos a Comprar</h5><br>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <td></td>
+                <th scope="col">
+                  <p>Nombre</p>
+                </th>
+                <th scope="col">
+                  <p>Costo</p>
+                </th>
+                <th scope="col">
+                  <p>Cantidad</p>
+                </th>
+                <th scope="col">
+                  <p>Subtotal</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="infoCarrito">
+
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        </div>
+        <hr>
+        <h5 class="mb-1">Tipo de Envío</h5>
         <br>
-        <h2 class="mb-1">Carrito de Compras</h2><br>
-      </div>
-      <h5 class="mb-1">Articulos a Comprar</h5><br>
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <td></td>
-              <th scope="col">
-                <p>Nombre</p>
-              </th>
-              <th scope="col">
-                <p>Costo</p>
-              </th>
-              <th scope="col">
-                <p>Cantidad</p>
-              </th>
-              <th scope="col">
-                <p>Subtotal</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody id="infoCarrito">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="porcentaje" value=0.15 id="id15" checked required>
+          <label class="form-check-label" for="flexRadioDefault1">
+            Premium 2 a 5 dias (15%)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="porcentaje" value=0.07 id="id7" required>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Express 5 a 8 dias (7%)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="porcentaje" value=0.05 id="id5" required>
+          <label class="form-check-label" for="flexRadioDefault3">
+            Standard 12 a 15 dias (5%)
+          </label>
+          <div class="invalid-feedback">Debe seleccionar una forma de envío.</div>
+        </div>
+        <br>
+        <h5 class="mb-1">Dirección de Envío</h5>
+        <br>
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="container">
+            <div class="row">
+              <div class="col-9"></div>
+              <div class="col-6">
 
-          </tbody>
-          <tfoot></tfoot>
-        </table>
-      </div>
-      <hr>
-      <h5 class="mb-1">Tipo de Envío</h5>
-      <br>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="porcentaje" value=0.15 id="id15" checked>
-        <label class="form-check-label" for="flexRadioDefault1">
-          Premium 2 a 5 dias (15%)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="porcentaje" value=0.07 id="id7">
-        <label class="form-check-label" for="flexRadioDefault2">
-          Express 5 a 8 dias (7%)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="porcentaje" value=0.05 id="id5">
-        <label class="form-check-label" for="flexRadioDefault3">
-          Standard 12 a 15 dias (5%)
-        </label>
-      </div>
-      <br>
-      <h5 class="mb-1">Dirección de Envío</h5>
-      <br>
-      <form class="row g-3 needs-validation" novalidate>
-        <div class="container">
-          <div class="row">
-            <div class="col-9"></div>
-            <div class="col-6">
-
-              <label for="validationServer01" class="form-label">Calle</label>
-              <input type="text" class="form-control" placeholder="Ej: Calle C" required>
-              <div class="valid-feedback">
-                ¡Se ve bien!
+                <label for="validationServer01" class="form-label">Calle</label>
+                <input type="text" class="form-control" placeholder="Ej: Calle C" required>
+                <div class="valid-feedback">
+                  ¡Se ve bien!
+                </div>
+                <div class="invalid-feedback">
+                  Proporciona una calle válida.
+                </div>
               </div>
-              <div class="invalid-feedback">
-                Proporciona una calle válida.
-              </div>
-            </div>
 
-            <!--<p>Calle</p>
+              <!--<p>Calle</p>
               <input class="form-control" type="text" placeholder="Ej: Calle C" aria-label="default input example">
                -->
-            <div class="col-4">
-              <label for="validationServer01" class="form-label">Numero</label>
-              <input type="number" class="form-control" placeholder="Ej: 1234" required>
-              <div class="valid-feedback">
-                ¡Se ve bien!
-              </div>
-              <div class="invalid-feedback">
-                Proporciona un numero de calle válido.
-              </div>
-              <!--<p>Número</p>
+              <div class="col-4">
+                <label for="validationServer01" class="form-label">Numero</label>
+                <input type="number" class="form-control" placeholder="Ej: 1234" required>
+                <div class="valid-feedback">
+                  ¡Se ve bien!
+                </div>
+                <div class="invalid-feedback">
+                  Proporciona un numero de calle válido.
+                </div>
+                <!--<p>Número</p>
               <input class="form-control" type="number" placeholder="Ej: 1234" aria-label="default input example">-->
+              </div>
             </div>
           </div>
-        </div>
-        <br>
-        <div class="container">
-          <div class="row">
-            <div class="col-9"></div>
-            <div class="col-6">
-              <label for="validationServer01" class="form-label">Esquina</label>
-              <input type="text" class="form-control" placeholder="Ej: Salamin" required>
-              <div class="invalid-feedback">
-                Proporciona una esquina válida.
-              </div>
-              <div class="valid-feedback">
-                ¡Se ve bien!
-              </div>
-              <!--<p>Esquina</p>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-9"></div>
+              <div class="col-6">
+                <label for="validationServer01" class="form-label">Esquina</label>
+                <input type="text" class="form-control" placeholder="Ej: Salamin" required>
+                <div class="invalid-feedback">
+                  Proporciona una esquina válida.
+                </div>
+                <div class="valid-feedback">
+                  ¡Se ve bien!
+                </div>
+                <!--<p>Esquina</p>
               <input class="form-control" type="text" placeholder="Ej: Salamin" aria-label="default input example">-->
-            </div>
-          </div>
-        </div>
-        <hr>
-        <h5 class="mb-1">Costos</h5>
-        <br>
-        <div class="list-group-item list-group-item-action cursor-active">
-          <div class="container">
-            <div class="row justify-content-between">
-              <div class="col-10">
-                <h6>Subtotal</h6>
-                <small class="text-muted">Costo unitario del producto por cantidad</small>
-              </div>
-              <div class="col-2">
-                <p class="text-end">USD <span id="sub">15200</span></p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="list-group-item list-group-item-action cursor-active">
-          <div class="container">
-            <div class="row justify-content-between">
-              <div class="col-10">
-                <h6>Costo de Envío</h6>
-                <small class="text-muted">Segun tipo de Envio</small>
-              </div>
-              <div class="col-2">
-                <p class="text-end">USD <span id="envio"></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="list-group-item list-group-item-action cursor-active">
-          <div class="container">
-            <div class="row justify-content-between">
-              <div class="col-10">
-                <h6>Total ($)</h6>
-              </div>
-              <div class="col-2">
-                <p class="fw-bold text-end">USD <span id="total"></span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <hr>
-        <br>
-        <h5>Formas de Pago</h5>
-        <div class="container pt-10">
-          <!-- Button trigger modal -->
-          <p>No ha seleccionado &nbsp; &nbsp; <a style="color:blue;" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">
-              <u>Seleccionar</u>
-            </a></p>
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fw-bold" id="exampleModalLabel">Forma de Pago</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <hr>
+          <h5 class="mb-1">Costos</h5>
+          <br>
+          <div class="list-group-item list-group-item-action cursor-active">
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-10">
+                  <h6>Subtotal</h6>
+                  <small class="text-muted">Costo unitario del producto por cantidad</small>
                 </div>
-                <div class="modal-body">
-                  <div class="container">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTarjeta">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Tarjeta de Crédito
-                      </label>
-                    </div>
-                    <hr>
-                  </div>
-
-                  <fieldset id="tarjeta">
-
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-9"></div>
-                      <div class="col-6">
-                        <p>Número de Tarjeta</p>
-                        <input class="form-control" type="number" aria-label="default input example" id="numTarjeta" disabled>
-                      </div>
-                      <div class="col-4">
-                        <p>Código de seg.</p>
-                        <input class="form-control" type="password" aria-label="default input example" id="codSeg" disabled>
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-9"></div>
-                      <div class="col-6">
-                        <p>Vencimiento (MM-AA)</p>
-                        <input class="form-control" type="number" max="9999" min="0000" aria-label="default input example" id="venc" disabled>
-                      </div>
-                    </div>
-                  </div>
-
-                  </fieldset>
-
-                  <br>
-                  <div class="container">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTransferencia">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Transferencia bancaria
-                      </label>
-                    </div>
-                    <hr>
-                  </div>
-
-                  <fieldset id="transferencia">
-
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-9"></div>
-                      <div class="col-6">
-                        <p>Número de Cuenta</p>
-                        <input class="form-control" type="number" aria-label="default input example" id="numCuenta" disabled>
-                      </div>
-                    </div>
-                  </div>
-
-                  </fieldset>
-
-                  <br>
-
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                  </div>
+                <div class="col-2">
+                  <p class="text-end">USD <span id="sub">15200</span></p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="list-group-item list-group-item-action cursor-active">
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-10">
+                  <h6>Costo de Envío</h6>
+                  <small class="text-muted">Segun tipo de Envio</small>
+                </div>
+                <div class="col-2">
+                  <p class="text-end">USD <span id="envio"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item list-group-item-action cursor-active">
+            <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-10">
+                  <h6>Total ($)</h6>
+                </div>
+                <div class="col-2">
+                  <p class="fw-bold text-end">USD <span id="total"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <hr>
+          <br>
+          <h5>Formas de Pago</h5>
+          <div class="container pt-10">
+            <!-- Button trigger modal -->
+            <p>No ha seleccionado &nbsp; &nbsp; <a style="color:blue;" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <u>Seleccionar</u>
+              </a></p>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Forma de Pago</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTarjeta" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Tarjeta de Crédito
+                        </label>
+                      </div>
+                      <hr>
+                    </div>
 
+                    <fieldset id="tarjeta">
+
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-9"></div>
+                          <div class="col-6">
+                            <p>Número de Tarjeta</p>
+                            <input class="form-control" type="number" aria-label="default input example" id="numTarjeta"
+                              disabled required>
+                          </div>
+                          <div class="col-4">
+                            <p>Código de seg.</p>
+                            <input class="form-control" type="password" aria-label="default input example" id="codSeg"
+                              disabled required>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-9"></div>
+                          <div class="col-6">
+                            <p>Vencimiento (MM-AA)</p>
+                            <input class="form-control" type="number" max="9999" min="0000"
+                              aria-label="default input example" id="venc" disabled required>
+                          </div>
+                        </div>
+                      </div>
+
+                    </fieldset>
+
+                    <br>
+                    <div class="container">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTransferencia" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Transferencia bancaria
+                        </label>
+                      </div>
+                      <hr>
+                    </div>
+
+                    <fieldset id="transferencia">
+
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-9"></div>
+                          <div class="col-6">
+                            <p>Número de Cuenta</p>
+                            <input class="form-control" type="number" aria-label="default input example" id="numCuenta"
+                              disabled required>
+                          </div>
+                        </div>
+                      </div>
+
+                    </fieldset>
+
+                    <br>
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--<button type="submit" class="botonsito btn btn-primary">Finalizar Compra</button>-->
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit" onchange="sumar()">Finalizar compra</button>
+          </div>
+        </form>
+        <div id="alerta" class="alert alert-success oculto" role="alert">
+          ¡Has comprado con éxito!
         </div>
-        <!--<button type="submit" class="botonsito btn btn-primary">Finalizar Compra</button>-->
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="submit" onchange="sumar()">Finalizar compra</button>
-        </div>
-      </form>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
