@@ -1,4 +1,22 @@
 
+function correo(){
+    let correo = localStorage.getItem("email");
+
+    document.getElementById("Email").value = correo;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     let usuario = localStorage.getItem("usuario");
 
@@ -14,14 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.clear();
         location.href = "login.html";
     })
-});
 
-function correo(){
-    let correo = localStorage.getItem("email");
-
-    document.getElementById("Email").value = correo;
-}
-
-document.addEventListener('DOMContentLoaded', function () {
     correo();
 });
+
+
+
