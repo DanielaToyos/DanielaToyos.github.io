@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="bootstrap.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
+  <link href="font-awesome.min.css" rel="stylesheet">
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -49,7 +50,8 @@
         </ul>
       </div>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
           <p style="color:powderblue">Bienvenid@, <span id="usuario"></span>!</p>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -66,31 +68,46 @@
       <br>
       <hr>
       <br>
-      <form action="action_page.php" method="post">
+      <form method="post" class="row g-3 needs-validation" id="validacionUsuario" novalidate>
         <!--<div class="imgcontainer">
           <img src="img_avatar2.png" alt="Avatar" class="avatar">
         </div>-->
-      
+
         <div class="container">
-          <label for="nombre"><b>Nombre*</b></label>
-          <input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre" required>
+          <div>
+            <label for="validationCustom01" class="form-label"><b>Nombre*</b></label>
+            <input type="text" class="form-control" placeholder="Ingrese su nombre"  id="nombre" name="nombre" aria-label="default input example" required>
+            <div class="invalid-feedback">
+              Debe ingresar un nombre.
+            </div>
+          </div>
           <br>
           <label for="nombre2"><b>Segundo Nombre</b></label>
           <input type="text" class="form-control" placeholder="Ingrese su segundo nombre" name="nombre2">
           <br>
-          <label for="apellido"><b>Apellido*</b></label>
-          <input type="text" class="form-control" placeholder="Ingrese su apellido" name="apellido" required>
+          <div>
+            <label for="validationCustom02" class="form-label"><b>Apellido*</b></label>
+            <input type="text" class="form-control" placeholder="Ingrese su apellido" id="apellido" name="apellido" aria-label="default input example" required>
+            <div class="invalid-feedback">
+              Debe ingresar un apellido.
+            </div>
+          </div>
           <br>
           <label for="apellido2"><b>Segundo Apellido</b></label>
           <input type="text" class="form-control" placeholder="Ingrese su segundo apellido" name="apellido2">
           <br>
-          <label for="email"><b>E-mail*</b></label>
-          <input  id="Email" type="email" class="form-control" name="email" required>
+          <div>
+            <label for="validationCustom03" class="form-label"><b>E-mail*</b></label>
+            <input id="Email" type="email" class="form-control" name="email" aria-label="default input example" required>
+            <div class="invalid-feedback">
+              Debe ingresar un E-mail.
+            </div>
+          </div>
           <br>
           <label for="telefono"><b>Teléfono de contacto</b></label>
           <input type="number" class="form-control" placeholder="Ingrese su teléfono de contacto" name="telefono">
           <br>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Guardar cambios</button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" id="guardar">Guardar cambios</button>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Recuérdame
           </label>
