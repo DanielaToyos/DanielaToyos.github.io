@@ -72,7 +72,7 @@
         <h5 class="mb-1">Tipo de Envío</h5>
         <br>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="porcentaje" value=0.15 id="id15" checked required>
+          <input class="form-check-input" type="radio" name="porcentaje" value=0.15 id="id15" required>
           <label class="form-check-label" for="flexRadioDefault1">
             Premium 2 a 5 dias (15%)
           </label>
@@ -93,7 +93,6 @@
         <br>
         <h5 class="mb-1">Dirección de Envío</h5>
         <br>
-        <form class="row g-3 needs-validation" novalidate>
           <div class="container">
             <div class="row">
               <div class="col-9"></div>
@@ -191,10 +190,11 @@
           <h5>Formas de Pago</h5>
           <div class="container pt-10">
             <!-- Button trigger modal -->
-            <p>No ha seleccionado &nbsp; &nbsp; <a style="color:blue;" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+            <div><p>No ha seleccionado &nbsp; &nbsp; <a style="color:blue;" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" id="botonModal">
                 <u>Seleccionar</u>
               </a></p>
+              <span class="invalid-feedback" id="errorModal"></span></div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
@@ -207,7 +207,7 @@
                   <div class="modal-body">
                     <div class="container">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTarjeta" required>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTarjeta">
                         <label class="form-check-label" for="flexRadioDefault1">
                           Tarjeta de Crédito
                         </label>
@@ -223,12 +223,12 @@
                           <div class="col-6">
                             <p>Número de Tarjeta</p>
                             <input class="form-control" type="number" aria-label="default input example" id="numTarjeta"
-                              disabled required>
+                              disabled>
                           </div>
                           <div class="col-4">
                             <p>Código de seg.</p>
                             <input class="form-control" type="password" aria-label="default input example" id="codSeg"
-                              disabled required>
+                              disabled>
                           </div>
                         </div>
                       </div>
@@ -239,7 +239,7 @@
                           <div class="col-6">
                             <p>Vencimiento (MM-AA)</p>
                             <input class="form-control" type="number" max="9999" min="0000"
-                              aria-label="default input example" id="venc" disabled required>
+                              aria-label="default input example" id="venc" disabled>
                           </div>
                         </div>
                       </div>
@@ -249,7 +249,7 @@
                     <br>
                     <div class="container">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTransferencia" required>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="botonTransferencia">
                         <label class="form-check-label" for="flexRadioDefault1">
                           Transferencia bancaria
                         </label>
@@ -265,7 +265,7 @@
                           <div class="col-6">
                             <p>Número de Cuenta</p>
                             <input class="form-control" type="number" aria-label="default input example" id="numCuenta"
-                              disabled required>
+                              disabled>
                           </div>
                         </div>
                       </div>
@@ -289,8 +289,7 @@
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="submit" onchange="sumar()">Finalizar compra</button>
           </div>
-        </form>
-        <div id="alerta" class="alert alert-success oculto" role="alert">
+        <div id="exito" class="alert alert-success hide" role="alert">
           ¡Has comprado con éxito!
         </div>
     </form>

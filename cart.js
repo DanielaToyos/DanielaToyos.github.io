@@ -164,57 +164,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function compraExitosa() {
 
-// Ejemplo de JavaScript inicial para deshabilitar el envío de formularios si hay campos no válidos
-/*(function () {
-    'use strict'
-  
-    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Bucle sobre ellos y evitar el envío
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  });*/
+    if (form.classList.add('was-validated')){
+    document.getElementById("exito").classList.replace("hide", "show")};
 
-/*document.getElementById("comprar").addEventListener("click" , function() {
-    compra(array);
-});
+}
 
-document.getElementById("comprar").addEventListener("click" , function() {
-    getJSONData
-})*/
+function valid() {
 
-/*function desactivarCampos() {
+    let botonTarjeta = document.getElementById("botonTarjeta");
+    let botonTransferencia = document.getElementById("botonTransferencia");
 
-    var numTarjeta = document.getElementById("numTarjeta");
-    var codSeg = document.getElementById("codSeg");
-    var venc = document.getElementById("venc");
-    var numCuenta = document.getElementById("numCuenta");
+    let validity = true
 
-    document.getElementById("botonTarjeta").innerHTML.addEventListener('click', function(e) {
-        numTarjeta.disabled = false;
-        codSeg.disabled = false;
-        venc.disabled = false;
-        numCuenta.disabled = true;
-    });
+    if (!botonTarjeta.checked || !botonTransferencia.checked) {
+        validity = false;
+        document.getElementById("botonModal").classList.add("invalid-color");
+        document.getElementById("errorModal").style.display = "inline";
+    } else {
+        document.getElementById("botonModal").classList.remove("invalid-color");
+        document.getElementById("errorModal").style.display = "none";
+    }
 
-    document.getElementById("botonTransferencia").innerHTML.addEventListener('click', function(e) {
-        numTarjeta.disabled = true;
-        codSeg.disabled = true;
-        venc.disabled = true;
-        numCuenta.disabled = false;
-    });
-
-};*/
+    return validity;
+}
 
 
+
+
+document.getElementById("validacion").addEventListener('submit', event => {
+    if (!valid() || !this.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+
+    }
+    document.body.classList.add('was-validated');
+    ['change', 'input'].forEach(evento => { document.body.addEventListener(evento, valid) })
+
+    compraExitosa()
+})

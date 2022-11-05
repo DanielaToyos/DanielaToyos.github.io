@@ -199,3 +199,11 @@ a.custom-card:hover {
   cursor: pointer;
   text-align: center;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
