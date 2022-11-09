@@ -77,36 +77,44 @@
           <div>
             <label for="validationCustom01" class="form-label"><b>Nombre*</b></label>
             <input type="text" class="form-control" placeholder="Ingrese su nombre"  id="nombre" name="nombre" aria-label="default input example" required>
-            <div class="invalid-feedback">
+            <p id="errorNombre"></p>
+            <!--<div class="invalid-feedback">
               Debe ingresar un nombre.
-            </div>
+            </div>-->
           </div>
           <br>
           <label for="nombre2"><b>Segundo Nombre</b></label>
-          <input type="text" class="form-control" placeholder="Ingrese su segundo nombre" name="nombre2">
+          <input type="text" class="form-control" placeholder="Ingrese su segundo nombre" id="nombre2">
           <br>
           <div>
             <label for="validationCustom02" class="form-label"><b>Apellido*</b></label>
             <input type="text" class="form-control" placeholder="Ingrese su apellido" id="apellido" name="apellido" aria-label="default input example" required>
-            <div class="invalid-feedback">
+            <p id="errorApellido"></p>
+            <!--<div class="invalid-feedback">
               Debe ingresar un apellido.
-            </div>
+            </div>-->
           </div>
           <br>
           <label for="apellido2"><b>Segundo Apellido</b></label>
-          <input type="text" class="form-control" placeholder="Ingrese su segundo apellido" name="apellido2">
+          <input type="text" class="form-control" placeholder="Ingrese su segundo apellido" id="apellido2">
           <br>
           <div>
             <label for="validationCustom03" class="form-label"><b>E-mail*</b></label>
             <input id="Email" type="email" class="form-control" name="email" aria-label="default input example" required>
-            <div class="invalid-feedback">
+            <p id="errorEmail"></p>
+            <!--<div class="invalid-feedback">
               Debe ingresar un E-mail.
-            </div>
+            </div>-->
           </div>
           <br>
           <label for="telefono"><b>Teléfono de contacto</b></label>
-          <input type="number" class="form-control" placeholder="Ingrese su teléfono de contacto" name="telefono">
+          <input type="number" class="form-control" placeholder="Ingrese su teléfono de contacto" id="telefono">
           <br>
+          <div class="form-check">
+            <p id="errors" style="color:red"></p>
+            <p id="passerror" style="color:red"></p>
+            <p id="completo" style="color:green"></p>
+          </div>
           <button class="w-100 btn btn-lg btn-primary" type="submit" id="guardar">Guardar cambios</button>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Recuérdame
