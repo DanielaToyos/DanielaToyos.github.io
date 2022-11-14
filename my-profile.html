@@ -24,6 +24,10 @@
         font-size: 3.5rem;
       }
     }
+
+    input:invalid:required {
+      background-image: linear-gradient(to right, pink, lightgreen);
+    }
   </style>
 </head>
 
@@ -68,7 +72,7 @@
       <br>
       <hr>
       <br>
-      <form method="post" class="row g-3 needs-validation" id="validacionUsuario" novalidate>
+      <form method="post" class="row g-3 needs-validation" name="profilevalidate">
         <!--<div class="imgcontainer">
           <img src="img_avatar2.png" alt="Avatar" class="avatar">
         </div>-->
@@ -76,11 +80,8 @@
         <div class="container">
           <div>
             <label for="validationCustom01" class="form-label"><b>Nombre*</b></label>
-            <input type="text" class="form-control" placeholder="Ingrese su nombre"  id="nombre" name="nombre" aria-label="default input example" required>
-            <p id="errorNombre"></p>
-            <!--<div class="invalid-feedback">
-              Debe ingresar un nombre.
-            </div>-->
+            <input type="text" class="form-control" placeholder="Ingrese su nombre" id="nombre" name="nombre"
+              aria-label="default input example" required>
           </div>
           <br>
           <label for="nombre2"><b>Segundo Nombre</b></label>
@@ -88,11 +89,8 @@
           <br>
           <div>
             <label for="validationCustom02" class="form-label"><b>Apellido*</b></label>
-            <input type="text" class="form-control" placeholder="Ingrese su apellido" id="apellido" name="apellido" aria-label="default input example" required>
-            <p id="errorApellido"></p>
-            <!--<div class="invalid-feedback">
-              Debe ingresar un apellido.
-            </div>-->
+            <input type="text" class="form-control" placeholder="Ingrese su apellido" id="apellido" name="apellido"
+              aria-label="default input example" required>
           </div>
           <br>
           <label for="apellido2"><b>Segundo Apellido</b></label>
@@ -100,25 +98,15 @@
           <br>
           <div>
             <label for="validationCustom03" class="form-label"><b>E-mail*</b></label>
-            <input id="Email" type="email" class="form-control" name="email" aria-label="default input example" required>
-            <p id="errorEmail"></p>
-            <!--<div class="invalid-feedback">
-              Debe ingresar un E-mail.
-            </div>-->
+            <input id="Email" type="email" class="form-control" name="email" aria-label="default input example"
+              required>
           </div>
           <br>
           <label for="telefono"><b>Teléfono de contacto</b></label>
           <input type="number" class="form-control" placeholder="Ingrese su teléfono de contacto" id="telefono">
           <br>
-          <div class="form-check">
-            <p id="errors" style="color:red"></p>
-            <p id="passerror" style="color:red"></p>
-            <p id="completo" style="color:green"></p>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit" id="guardar">Guardar cambios</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Recuérdame
-          </label>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" id="guardar" value="submit">Guardar
+            cambios</button>
         </div>
       </form>
     </div>
@@ -136,6 +124,8 @@
   <script src="bootstrap.bundle.min.js"></script>
   <script src="init.js"></script>
   <script src="my-profile.js"></script>
+
+
 </body>
 
 </html>
