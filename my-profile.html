@@ -98,7 +98,7 @@
           <br>
           <div>
             <label for="validationCustom03" class="form-label"><b>E-mail*</b></label>
-            <input id="Email" type="email" class="form-control" name="email" aria-label="default input example"
+            <input id="correo" type="email" class="form-control" name="email" aria-label="default input example"
               required>
           </div>
           <br>
@@ -121,6 +121,17 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <p>Los cambios han sido guardados con exito!</p>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <p>Por favor llenar los campos obligatorios</p>
+  </div>
+
   <script src="bootstrap.bundle.min.js"></script>
   <script src="init.js"></script>
   <script src="my-profile.js"></script>

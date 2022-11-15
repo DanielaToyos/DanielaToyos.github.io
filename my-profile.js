@@ -1,47 +1,42 @@
 let usuario = localStorage.getItem("usuario");
 let email = localStorage.getItem("email");
-let nombre = document.getElementById("nombre").value;
-let nombre2 = document.getElementById("nombre2").value;
-let apellido = document.getElementById("apellido").value;
-let apellido2 = document.getElementById("apellido2").value;
-let correo = document.getElementById("Email").value;
-let telefono = document.getElementById("telefono").value;
+let nombre2 = localStorage.getItem("nombre2");
+let apellido = localStorage.getItem("apellido");
+let apellido2 = localStorage.getItem("apellido2");
+let telefono = localStorage.getItem("telefono");
 
 
 function profilevalidate() {
 
-    if(nombre === "" || || apellido === "" || correo === ""){
-        alert("Por favor llenar los campos obligatorios");
-    } else {
-        alert("Los cambios han sido guardados con exito");
-        localStorage.setItem("usuario" , nombre);
-        localStorage.setItem("apellido" , apellido);
-        localStorage.setItem("email" , correo);
-        localStorage.setItem("nombre2" , nombre2);
-        localStorage.setItem("apellido2" , apellido2);
-        localStorage.setItem("telefono" , telefono);
-    }
+    localStorage.setItem("usuario" , document.getElementById("nombre").value);
+    localStorage.setItem("apellido" , document.getElementById("apellido").value );
+    localStorage.setItem("email" , document.getElementById("correo").value);
+    localStorage.setItem("nombre2" , document.getElementById("nombre2").value);
+    localStorage.setItem("apellido2" , document.getElementById("apellido2").value);
+    localStorage.setItem("telefono" , document.getElementById("telefono").value);
 
 }
 
 function agarrarInfo() {
-    correo = localStorage.getItem("email");
-    nombre = localStorage.getItem("usuario");
-    apellido = localStorage.getItem("apellido");
-    nombre2 = localStorage.getItem("nombre2");
-    apellido2 = localStorage.getItem("apellido2");
-    telefono = localStorage.getItem("telefono");
+    
+    document.getElementById("nombre").value = usuario;
+    document.getElementById("apellido").value = apellido;
+    document.getElementById("correo").value = email;
+    document.getElementById("nombre2").value = nombre2;
+    document.getElementById("apellido2").value = apellido2;
+    document.getElementById("telefono").value = telefono;
+
 }
 
 
 
-/*function showAlertSuccess() {
+function showAlertSuccess() {
     document.getElementById("alert-success").classList.add("show");
 }
 
 function showAlertError() {
     document.getElementById("alert-danger").classList.add("show");
-}*/
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         location.href = "login.html";
     } else {
         document.getElementById("usuario").innerHTML = usuario;
+        nombre == usuario;
     }
 
     document.getElementById("cierro").addEventListener("click", () => {
@@ -60,10 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
         location.href = "login.html";
     })
 
+    if(email !== null){
+        correo == email;
+    }
+
     agarrarInfo();
 
     document.getElementById("guardar").addEventListener("click", () => {
-        profilevalidate();
+
+        let userName = document.getElementById("nombre").value;
+        let lastName = document.getElementById("apellido").value;
+        let userEmail = document.getElementById("correo").value;
+
+        if(userName === "" || lastName === "" || userEmail === ""){
+            showAlertError();
+        } else {
+            showAlertSuccess();
+            profilevalidate();
+        }
 
     })
     
